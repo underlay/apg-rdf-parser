@@ -1,0 +1,19 @@
+_:c14n0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://example.com/Person> .
+_:c14n1 <http://underlay.org/ns/rex#geo-pro> _:c14n7 .
+_:c14n2 <http://underlay.org/ns/rex#object> "John Doe" .
+_:c14n2 <http://underlay.org/ns/rex#subject> _:c14n8 .
+_:c14n2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://example.com/Person/name> .
+_:c14n3 <http://underlay.org/ns/rex#object> _:c14n4 .
+_:c14n3 <http://underlay.org/ns/rex#self> _:c14n3 .
+_:c14n3 <http://underlay.org/ns/rex#subject> _:c14n8 .
+_:c14n3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://example.com/Person/geo> .
+_:c14n4 <http://underlay.org/ns/rex#geo-cop> _:c14n1 .
+_:c14n5 <http://underlay.org/ns/rex#object> _:c14n0 .
+_:c14n5 <http://underlay.org/ns/rex#subject> _:c14n8 .
+_:c14n5 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://example.com/Person/knows> .
+_:c14n6 <http://underlay.org/ns/rex#object> "Jane Doe" .
+_:c14n6 <http://underlay.org/ns/rex#subject> _:c14n0 .
+_:c14n6 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://example.com/Person/name> .
+_:c14n7 <http://underlay.org/ns/rex#lat> "20.32"^^<http://www.w3.org/2001/XMLSchema#decimal> .
+_:c14n7 <http://underlay.org/ns/rex#long> "99.222"^^<http://www.w3.org/2001/XMLSchema#decimal> .
+_:c14n8 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://example.com/Person> .
