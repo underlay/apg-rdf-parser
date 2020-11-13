@@ -1,5 +1,5 @@
 import * as N3 from "n3.ts";
-import { ns, schemaSchema } from "apg";
+import { ns, schemaSchema } from "@underlay/apg";
 import { parse } from "./parse.js";
 export function parseSchemaString(input) {
     const store = new N3.Store(N3.Parse(input));

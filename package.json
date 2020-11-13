@@ -1,6 +1,6 @@
 {
 	"name": "@underlay/apg-rdf-parser",
-	"version": "0.0.1",
+	"version": "0.1.0",
 	"description": "Serialize and parse APG instances to and from RDF datasets",
 	"main": "lib/index.js",
 	"types": "es6/index.d.ts",
@@ -24,10 +24,13 @@
 	},
 	"homepage": "https://github.com/underlay/apg-rdf-parser#readme",
 	"dependencies": {
+		"@types/rdf-canonize": "gist:dc406f4c567dcab1da98cf19b2b8a6d8",
 		"@types/shexjs": "gist:423141cd96c858931f618fbf97fdc1b9",
 		"@types/uuid": "^8.3.0",
-		"apg": "file:../apg",
-		"uuid": "^8.3.1"
+		"@underlay/apg": "^0.6.3",
+		"rdf-canonize": "^1.2.0",
+		"uuid": "^8.3.1",
+		"ziterable": "^1.0.1"
 	},
 	"devDependencies": {
 		"@babel/cli": "^7.12.1",
@@ -37,19 +40,18 @@
 		"@shexjs/util": "file:shex.js/packages/shex-util",
 		"@shexjs/validator": "file:shex.js/packages/shex-validator",
 		"@types/jest": "^26.0.15",
-		"@types/rdf-canonize": "gist:dc406f4c567dcab1da98cf19b2b8a6d8",
 		"fp-ts": "2.8.5",
 		"io-ts": "2.2.12",
 		"jest": "^26.6.3",
 		"n3.ts": "^0.2.0",
-		"rdf-canonize": "^1.2.0",
-		"typescript": "^4.0.3"
+		"typescript": "^4.0.5"
 	},
 	"peerDependencies": {
 		"@shexjs/util": "1.0.0-alpha.6",
 		"@shexjs/validator": "1.0.0-alpha.6",
 		"fp-ts": "^2.8.5",
 		"io-ts": "^2.2.12",
-		"n3.ts": "^0.2.0"
+		"n3.ts": "^0.2.0",
+		"typescript": "^4.0.5"
 	}
 }

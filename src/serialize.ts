@@ -3,9 +3,9 @@ import { DataModel } from "n3.ts"
 
 import canonize from "rdf-canonize"
 
-import { APG } from "apg"
+import zip from "ziterable"
 
-import { zip } from "./utils.js"
+import { APG } from "@underlay/apg"
 
 export function serializeString(
 	instance: APG.Instance,

@@ -3,7 +3,7 @@ import { resolve } from "path"
 import { Quad } from "rdf-canonize"
 import canonize from "rdf-canonize"
 
-import { schemaSchema } from "apg"
+import { schemaSchema } from "@underlay/apg"
 
 import { parseString } from "../es6/parse.js"
 import { parseSchemaString } from "../es6/parseSchema.js"

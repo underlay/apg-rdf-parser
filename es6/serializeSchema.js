@@ -1,7 +1,7 @@
 import * as N3 from "n3.ts";
 import { rdf } from "n3.ts";
 import canonize from "rdf-canonize";
-import { ns } from "apg";
+import { ns } from "@underlay/apg";
 import { signalInvalidType } from "./utils.js";
 const rdfType = new N3.NamedNode(rdf.type);
 const ul = {

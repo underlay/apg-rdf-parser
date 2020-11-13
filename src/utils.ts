@@ -1,6 +1,6 @@
 import { NamedNode, BlankNode, Literal, rdf, xsd } from "n3.ts"
 
-import { APG } from "apg"
+import { APG } from "@underlay/apg"
 
 import ShExParser from "@shexjs/parser"
 import {
@@ -24,30 +24,6 @@ export const getBlankNodeId = (
 	typeCache: Map<Exclude<APG.Type, APG.Reference>, string>
 ): string =>
 	type.type === "reference" ? `_:l${type.value}` : typeCache.get(type)!
-
-type Iterate<E> = E extends Iterable<any>[]
-	? { [k in keyof E]: E[k] extends Iterable<infer T> ? T : E[k] }
-	: never
-
-export const zip = <E extends Iterable<any>[]>(
-	...args: E
-): Iterable<[...Iterate<E>, number]> => ({
-	[Symbol.iterator]() {
-		const iterators = args.map((arg) => arg[Symbol.iterator]())
-		let i = 0
-		return {
-			next() {
-				const results = iterators.map((iter) => iter.next())
-				if (results.some(({ done }) => done)) {
-					return { done: true, value: undefined }
-				} else {
-					const values = results.map(({ value }) => value) as Iterate<E>
-					return { done: false, value: [...values, i++] }
-				}
-			},
-		}
-	},
-})
 
 export function parseObjectValue(object: ShExParser.objectValue) {
 	if (typeof object === "string") {

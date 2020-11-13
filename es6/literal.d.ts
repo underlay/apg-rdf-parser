@@ -1,5 +1,5 @@
 /// <reference types="shexjs" />
-import { APG } from "apg";
+import { APG } from "@underlay/apg";
 import { SuccessResult } from "@shexjs/validator";
 import ShExParser from "@shexjs/parser";
 declare type literalShape = {

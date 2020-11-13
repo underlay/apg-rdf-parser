@@ -3,7 +3,7 @@ import { DataModel, rdf } from "n3.ts"
 
 import canonize from "rdf-canonize"
 
-import { APG, ns } from "apg"
+import { APG, ns } from "@underlay/apg"
 
 import { signalInvalidType } from "./utils.js"
 
@@ -39,6 +39,23 @@ export function* serializeSchema(
 	const typeIds: Map<APG.Type, N3.BlankNode> = new Map()
 	const counter = { value: 0 }
 	yield* generateSchema(schema, typeIds, counter)
+}
+
+function* generateSchema(
+	schema: APG.Schema,
+	types: Map<APG.Type, N3.BlankNode>,
+	counter: { value: number }
+): Generator<N3.Quad, void, undefined> {
+	for (const [index, label] of schema.entries()) {
+		const subject = new N3.BlankNode(`l-${index}`)
+		yield new N3.Quad(subject, rdfType, ul.label)
+		yield new N3.Quad(subject, ul.key, new N3.NamedNode(label.key))
+
+		const value = new N3.BlankNode(`t-${counter.value++}`)
+		const object = yield* generateType(label.value, types, counter)
+		yield new N3.Quad(value, ul[label.value.type], object)
+		yield new N3.Quad(subject, ul.value, value)
+	}
 }
 
 function* generateType(
@@ -95,21 +112,4 @@ function* generateType(
 		signalInvalidType(type)
 	}
 	return subject
-}
-
-function* generateSchema(
-	schema: APG.Schema,
-	types: Map<APG.Type, N3.BlankNode>,
-	counter: { value: number }
-): Generator<N3.Quad, void, undefined> {
-	for (const [index, label] of schema.entries()) {
-		const subject = new N3.BlankNode(`l-${index}`)
-		yield new N3.Quad(subject, rdfType, ul.label)
-		yield new N3.Quad(subject, ul.key, new N3.NamedNode(label.key))
-
-		const value = new N3.BlankNode(`t-${counter.value++}`)
-		const object = yield* generateType(label.value, types, counter)
-		yield new N3.Quad(value, ul[label.value.type], object)
-		yield new N3.Quad(subject, ul.value, value)
-	}
 }

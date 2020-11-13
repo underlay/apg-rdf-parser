@@ -1,6 +1,6 @@
 import * as N3 from "n3.ts";
 import canonize from "rdf-canonize";
-import { zip } from "./utils.js";
+import zip from "ziterable";
 export function serializeString(instance, schema) {
     const quads = [];
     for (const quad of serialize(instance, schema)) {

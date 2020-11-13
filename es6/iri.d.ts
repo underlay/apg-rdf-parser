@@ -1,5 +1,5 @@
 /// <reference types="shexjs" />
-import { APG } from "apg";
+import { APG } from "@underlay/apg";
 import ShExParser from "@shexjs/parser";
 import { SuccessResult } from "@shexjs/validator";
 declare type iriShape = {

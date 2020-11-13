@@ -2,7 +2,8 @@ import { NamedNode, Store, rdf, Parse, } from "n3.ts";
 import { v4 as uuid } from "uuid";
 import ShExUtil from "@shexjs/util";
 import ShExValidator from "@shexjs/validator";
-import { APG } from "apg";
+import zip from "ziterable";
+import { APG } from "@underlay/apg";
 import { makeShExSchema } from "./shexSchema.js";
 import { isUnitResult } from "./unit.js";
 import { isIriResult } from "./iri.js";
@@ -10,7 +11,7 @@ import { isLabelResult, parseLabelResult } from "./label.js";
 import { isLiteralResult } from "./literal.js";
 import { isProductResult, parseProductResult } from "./product.js";
 import { isCoproductResult, parseCoproductResult } from "./coproduct.js";
-import { zip, parseObjectValue, getBlankNodeId, signalInvalidType, getCaches, } from "./utils.js";
+import { parseObjectValue, getBlankNodeId, signalInvalidType, getCaches, } from "./utils.js";
 const rdfType = new NamedNode(rdf.type);
 export function parseString(input, schema) {
     const store = new Store(Parse(input));

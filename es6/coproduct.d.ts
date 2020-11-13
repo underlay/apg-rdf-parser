@@ -1,5 +1,5 @@
 /// <reference types="shexjs" />
-import { APG } from "apg";
+import { APG } from "@underlay/apg";
 import ShExParser from "@shexjs/parser";
 import { SuccessResult, EachOfSolutions, OneOfSolutions, TripleConstraintSolutions } from "@shexjs/validator";
 import { anyType, anyTypeResult, BlankNodeConstraint, BlankNodeConstraintResult } from "./utils.js";

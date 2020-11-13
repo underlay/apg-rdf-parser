@@ -1,5 +1,5 @@
 /// <reference types="shexjs" />
-import { APG } from "apg";
+import { APG } from "@underlay/apg";
 import { SuccessResult } from "@shexjs/validator";
 import { BlankNodeConstraint, BlankNodeConstraintResult, anyType, anyTypeResult } from "./utils.js";
 declare type emptyShape = {

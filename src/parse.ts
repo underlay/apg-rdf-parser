@@ -17,7 +17,9 @@ import { v4 as uuid } from "uuid"
 import ShExUtil from "@shexjs/util"
 import ShExValidator, { SuccessResult, FailureResult } from "@shexjs/validator"
 
-import { APG } from "apg"
+import zip from "ziterable"
+
+import { APG } from "@underlay/apg"
 
 import { makeShExSchema } from "./shexSchema.js"
 import { isUnitResult } from "./unit.js"
@@ -28,7 +30,6 @@ import { isProductResult, parseProductResult } from "./product.js"
 import { isCoproductResult, parseCoproductResult } from "./coproduct.js"
 
 import {
-	zip,
 	parseObjectValue,
 	getBlankNodeId,
 	signalInvalidType,

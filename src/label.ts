@@ -1,6 +1,6 @@
 import { rdf } from "n3.ts"
 
-import { APG } from "apg"
+import { APG } from "@underlay/apg"
 
 import { SuccessResult } from "@shexjs/validator"
 

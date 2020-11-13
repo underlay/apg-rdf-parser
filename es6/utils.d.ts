@@ -1,14 +1,10 @@
 /// <reference types="shexjs" />
 import { NamedNode, BlankNode, Literal, rdf } from "n3.ts";
-import { APG } from "apg";
+import { APG } from "@underlay/apg";
 import ShExParser from "@shexjs/parser";
 import { EachOfSolutions, OneOfSolutions, TripleConstraintSolutions, SuccessResult } from "@shexjs/validator";
 export declare function signalInvalidType(type: never): never;
 export declare const getBlankNodeId: (type: APG.Type, typeCache: Map<Exclude<APG.Type, APG.Reference>, string>) => string;
-declare type Iterate<E> = E extends Iterable<any>[] ? {
-    [k in keyof E]: E[k] extends Iterable<infer T> ? T : E[k];
-} : never;
-export declare const zip: <E extends Iterable<any>[]>(...args: E) => Iterable<[...Iterate<E>, number]>;
 export declare function parseObjectValue(object: ShExParser.objectValue): BlankNode | NamedNode<string> | Literal<string>;
 export interface anyType extends ShExParser.TripleConstraint<typeof rdf.type, undefined> {
     min: 0;
